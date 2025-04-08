@@ -3,7 +3,7 @@ import {AiOutlineAppstoreIcon, FiSearchIcon} from '@/Icons/Icons'
 const ChatSidebar = () => {
   return (
     <>
-      <section className="bg-red-500">
+      <section className="bg-red-500 max-w-[40%] min-w-[30%]">
         {/*  */}
         <main>
           <div>

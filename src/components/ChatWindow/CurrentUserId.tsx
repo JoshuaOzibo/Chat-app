@@ -1,10 +1,11 @@
 import { Badge } from "@/components/ui/badge";
+import {FaVolumeHighIcon} from '@/Icons/Icons'
 
 
 export default function CurrentUserId() {
   return (
     <>
-      <section className="bg-blue-500">
+      <section className="bg-blue-500 flex justify-between items-center w-1/2 py-6 m-auto px-10">
         <main>
           {/* <img src="" alt="" /> */}
           <h1>Josephin water</h1>
@@ -12,7 +13,18 @@ export default function CurrentUserId() {
         </main>
 
         
-        <main></main>
+        <main className="bg-red-500 flex justify-between items-center w-1/2">
+          <div className="flex gap-2 items-center">
+           <FaVolumeHighIcon />
+           <FaVolumeHighIcon />
+          </div>
+          <div className="flex gap-2 items-center">
+          <FaVolumeHighIcon />
+          <FaVolumeHighIcon />
+          <FaVolumeHighIcon />
+          <FaVolumeHighIcon />
+          </div>
+        </main>
       </section>
     </>
   );
