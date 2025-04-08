@@ -1,19 +1,18 @@
 import { Badge } from "@/components/ui/badge";
 
+
 export default function CurrentUserId() {
   return (
     <>
-      <section>
+      <section className="bg-blue-500">
         <main>
           {/* <img src="" alt="" /> */}
           <h1>Josephin water</h1>
-          <Badge variant="outline">Active</Badge>
+          <Badge variant="outline" className="bg-red-700">Active</Badge>
         </main>
 
-
-        <main>
-            
-        </main>
+        
+        <main></main>
       </section>
     </>
   );
