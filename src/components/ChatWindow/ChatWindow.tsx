@@ -3,7 +3,7 @@ import RightBar from "@/components/ChatWindow/RightBar";
 export default function ChatWindow() {
   return (
     <>
-      <section>
+      <section className="">
         <CurrentUserId />
 
         <RightBar />
