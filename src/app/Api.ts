@@ -1,6 +1,6 @@
 // app/api/messages/route.ts
 import { NextResponse } from "next/server";
-import connectDB from "@/lib/Mongo";
+import connectDB from "@/app/lib/Mongo";
 import Message from "@/models/Message";
 
 export async function GET() {

@@ -3,7 +3,7 @@ import ChatSidebar from "../ChatSidebar/ChatSidebar";
 
 const Chat = () => {
   return (
-    <div className="flex w-full bg-amber-700">
+    <div className="flex w-full">
       <ChatSidebar />
       <ChatWindow />
     </div>
