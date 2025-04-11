@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import {
   Card,
@@ -8,8 +10,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { signIn } from "next-auth/react";
 
 const page = () => {
+  const handleLogin = () => {
+    signIn("google"); // triggers Google authentication
+  };
+
+
   return (
     <>
       <Card className="w-1/2 m-auto">
@@ -18,7 +26,7 @@ const page = () => {
           <CardDescription>Card Description</CardDescription>
         </CardHeader>
         <CardContent>
-          <Button>Login</Button>
+        <Button onClick={handleLogin}>Login</Button>
         </CardContent>
         <CardFooter>
           <p>Card Footer</p>

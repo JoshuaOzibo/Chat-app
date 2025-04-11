@@ -9,7 +9,7 @@ export default async function Home() {
   if (!session) {
     redirect("/login");
   } else {
-    redirect("/chat");  // Redirect authenticated users to the chat page
+    redirect("/");  // Redirect authenticated users to the chat page
   }
 
   return (
