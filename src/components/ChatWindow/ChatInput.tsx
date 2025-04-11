@@ -14,11 +14,11 @@ export default function ChatInput() {
     }
 
     socket.on("connect", () => {
-      console.log("✅ Connected to socket:", socket.id);
+      console.log(" Connected to socket:", socket.id);
     });
 
     socket.on("connect_error", (err) => {
-      console.error("❌ Connection error:", err);
+      console.error(" Connection error:", err);
     });
 
     return () => {
