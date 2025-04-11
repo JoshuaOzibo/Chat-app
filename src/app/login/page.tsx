@@ -7,17 +7,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const page = () => {
   return (
     <>
-      <Card>
+      <Card className="w-1/2 m-auto">
         <CardHeader>
           <CardTitle>Card Title</CardTitle>
           <CardDescription>Card Description</CardDescription>
         </CardHeader>
         <CardContent>
-          <p>Card Content</p>
+          <Button>Login</Button>
         </CardContent>
         <CardFooter>
           <p>Card Footer</p>

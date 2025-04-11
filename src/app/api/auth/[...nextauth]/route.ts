@@ -1,8 +1,8 @@
-// app/api/auth/[...nextauth]/route.ts
-import NextAuth from "next-auth";
+import NextAuth, { Session } from "next-auth";
+import { JWT } from "next-auth/jwt";
 import GoogleProvider from "next-auth/providers/google";
 
-const handler = NextAuth({
+export const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -10,13 +10,12 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async session({ session, token }) {
+    async session({ session, token }: { session: Session; token: JWT }) {
       (session.user as { id?: string }).id = token.sub;
       return session;
     },
-  }
-  
-  
-});
+  },
+};
 
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
