@@ -5,7 +5,7 @@ import {FaVolumeHighIcon} from '@/Icons/Icons'
 export default function CurrentChattingUser() {
   return (
     <>
-      <section className="bg-blue-500 flex absolute translate-x-1/3 mx-0 justify-between items-center w-1/2 py-6 m-auto px-10">
+      <section className="bg-blue-500 flex absolute justify-between items-center w-[90%] py-6 m-auto px-10">
         <main>
           {/* <img src="" alt="" /> */}
           <h1>Josephin water</h1>

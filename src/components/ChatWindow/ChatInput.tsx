@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import socket from "@/app/lib/socket";
+import {IoMdPaperPlaneIcon} from "@/Icons/Icons"
+import Button from '@/components/ui/customUi/button'
 
 export default function ChatInput() {
   const [message, setMessage] = useState("");
@@ -61,22 +63,25 @@ export default function ChatInput() {
   };
 
   return (
-    <div className="bg-blue-800 w-full p-4">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <textarea
+    <div className="bg-blue-800 flex absolute bottom-0 w-full p-4">
+      <div className="flex gap-3">
+      <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={ <IoMdPaperPlaneIcon color="#ff8b4e" />} />
+      <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={ <IoMdPaperPlaneIcon color="#ff8b4e" />} />
+      <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={ <IoMdPaperPlaneIcon color="#ff8b4e" />} />
+
+      </div>
+      <form onSubmit={handleSubmit} className=" relative w-full flex items-center">
+        <input
+          className="w-full outline-none mx-3 rounded" 
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          rows={2}
-          className="w-full border rounded px-2 py-1"
-          disabled={isSending}
+          disabled={isSending} type="text" 
+          placeholder="Write your message..."
         />
-        <button
-          type="submit"
-          className="w-full py-2 px-4 bg-blue-500 text-white rounded disabled:bg-blue-300"
-          disabled={isSending}
-        >
-          {isSending ? "Sending..." : "Send Message"}
-        </button>
+        <div className="flex gap-3">
+        <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={ <IoMdPaperPlaneIcon color="#ff8b4e" />} />
+        <Button type="submit" className="bg-[#ffdac5] p-2 rounded-full" value={ <IoMdPaperPlaneIcon color="#ff8b4e" />} />
+        </div>
       </form>
     </div>
   );

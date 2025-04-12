@@ -8,12 +8,12 @@ export default function ChatWindow() {
   return (
     <>
       <section className="bg-amber-500 relative flex justify-between w-full">
-        <main className="bg-emerald-700 w-full">
+        <main className="bg-emerald-700 relative w-full">
           <CurrentChattingUser />
 
           <Chat />
 
-          {/* <ChatInput /> */}
+          <ChatInput />
         </main>
         <main className="bg-lime-800">
           <RightBar />

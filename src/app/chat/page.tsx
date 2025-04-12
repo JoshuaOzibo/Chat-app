@@ -36,14 +36,11 @@ export default function ChatPage() {
   return (
     <div className="p-4 relative mt-32">
       <ul className="space-y-2 absolute mx-10 right-0">
-        {/* {messages.map((msg, index) => (
-          <li key={index}>
-            <strong>{msg.sender}:</strong> {msg.text}
+        {messages.map((msg, index) => (
+          <li className='bg-blue-900 rounded-br-2xl rounded-l-2xl px-3 py-2 text-white flex' key={index}>
+            {/* <strong>{msg.sender}:</strong>  */}
+            {msg.text}
           </li>
-        ))} */}
-
-        {['Hello', "hi", "my guy", "How far"].map((chat, index) => (
-          <li className='bg-blue-900 rounded-br-2xl rounded-l-2xl px-3 py-2 text-white flex' key={index}>{chat}</li>
         ))}
       </ul>
     </div>
