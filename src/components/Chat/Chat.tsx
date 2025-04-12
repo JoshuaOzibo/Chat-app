@@ -1,3 +1,5 @@
+'use client'
+
 import ChatWindow from "../ChatWindow/ChatWindow";
 import ChatSidebar from "../ChatSidebar/ChatSidebar";
 

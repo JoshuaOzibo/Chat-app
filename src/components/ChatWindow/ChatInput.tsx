@@ -61,7 +61,7 @@ export default function ChatInput() {
   };
 
   return (
-    <div className="bg-blue-800 fixed bottom-0 w-full p-4">
+    <div className="bg-blue-800 w-full p-4">
       <form onSubmit={handleSubmit} className="space-y-4">
         <textarea
           value={message}

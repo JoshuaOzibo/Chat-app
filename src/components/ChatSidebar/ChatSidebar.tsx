@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 const ChatSidebar = () => {
   return (
     <>
-      <section className="bg-red-500 h-screen lg:w-[400px] md:w-[350px] w-[300px]">
+      <section className="bg-red-500 h-full lg:w-[400px] md:w-[350px] w-[300px]">
         {/*  */}
         <div className="px-2 space-y-2">
           <main className="bg-yellow-800 flex items-center justify-between">
