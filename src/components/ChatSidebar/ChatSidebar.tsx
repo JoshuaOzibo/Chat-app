@@ -1,6 +1,7 @@
 "use client";
 import { AiOutlineAppstoreIcon, FiSearchIcon } from "@/Icons/Icons";
 import SubSidebar from "./SubSidebar";
+import ContactItem from "./ContactItem";
 
 const ChatSidebar = () => {
   return (
@@ -32,24 +33,8 @@ const ChatSidebar = () => {
           </div>
 
           {/* main chat */}
-          <main className=" px-2 overflow-y-auto">
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
-            <div>Hello</div>
+          <main className=" my-5 overflow-y-auto">
+            <ContactItem />
           </main>
         </main>
       </section>
