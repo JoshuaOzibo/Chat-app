@@ -4,7 +4,7 @@ interface CustomButtonProps {
     type?: ButtonType;
     className?: string;
     value: valueType
-    
+    onClick?: () => void
   }
 
 export default function Button({value, className, type}: CustomButtonProps){
