@@ -14,7 +14,7 @@ import { signIn } from "next-auth/react";
 
 const page = () => {
   const handleLogin = () => {
-    signIn("google"); // triggers Google authentication
+    signIn("google", { callbackUrl: "/" }); 
   };
 
 

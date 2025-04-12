@@ -1,4 +1,7 @@
+"use client";
 import { AiOutlineAppstoreIcon, FiSearchIcon } from "@/Icons/Icons";
+import { signOut } from "next-auth/react";
+import { Button } from "../ui/button";
 
 const ChatSidebar = () => {
   return (
@@ -47,6 +50,10 @@ const ChatSidebar = () => {
           <div>Hello</div>
           <div>Hello</div>
         </main>
+
+        <Button onClick={() => signOut({ callbackUrl: "/login" })}>
+          Sign Out
+        </Button>
       </section>
     </>
   );
