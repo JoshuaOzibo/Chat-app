@@ -23,7 +23,7 @@ export const authOptions = {
             name: user.name,
             email: user.email,
             image: user.image,
-            id: user.id
+            id: user.id,
           });
           console.log(" User created in MongoDB");
         } else {
