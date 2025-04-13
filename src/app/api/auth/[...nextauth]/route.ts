@@ -15,24 +15,24 @@ export const authOptions = {
     async signIn({ user }: { user: NextAuthUser }) {
       try {
         await connectDB();
-
-        const existingUser = await User.findOne({ email: user.email });
+        
+        const existingUser = await User.findOne({ googleId: user.id });
 
         if (!existingUser) {
           await User.create({
             name: user.name,
             email: user.email,
             image: user.image,
-            id: user.id,
+            googleId: user.id,
           });
-          console.log(" User created in MongoDB");
+          console.log("User created in MongoDB");
         } else {
-          console.log("ℹ️ User already exists in MongoDB");
+          console.log("User already exists in MongoDB");
         }
 
         return true;
       } catch (err) {
-        console.error(" Error in signIn callback:", err);
+        console.error("Error in signIn callback:", err);
         return false;
       }
     },

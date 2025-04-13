@@ -13,14 +13,20 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    console.log('Current user:', session.user);
     await connectDB();
+    
+    console.log('Fetching messages for user:', {
+      id: session.user.id,
+      email: session.user.email
+    });
     
     // Get all messages where user is either sender or receiver
     const messages = await Message.find({
       $or: [
         { sender: session.user.id },
-        { receiver: session.user.id }
+        { receiver: session.user.id },
+        { sender: session.user.email },
+        { receiver: session.user.email }
       ]
     }).sort({ createdAt: -1 });
 
@@ -42,8 +48,16 @@ export async function POST(req: Request) {
     await connectDB();
     const { receiverId, text } = await req.json();
 
+    console.log('Creating message:', {
+      sender: session.user.id,
+      senderEmail: session.user.email,
+      receiver: receiverId,
+      text
+    });
+
     const message = await Message.create({
       sender: session.user.id,
+      senderEmail: session.user.email,
       receiver: receiverId,
       text,
     });
