@@ -13,18 +13,18 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    console.log('Current user:', session.user);
     await connectDB();
     
-    // Get conversations this user is part of
-    const conversations = await Conversation.find({
-      participants: session.user.id
-    });
-    
-    // Get messages from these conversations
+    // Get all messages where user is either sender or receiver
     const messages = await Message.find({
-      conversationId: { $in: conversations.map(c => c._id) }
-    }).sort({ createdAt: -1 }).limit(50);
+      $or: [
+        { sender: session.user.id },
+        { receiver: session.user.id }
+      ]
+    }).sort({ createdAt: -1 });
 
+    console.log('Found messages:', messages);
     return NextResponse.json(messages);
   } catch (error) {
     console.error('Error fetching messages:', error);
@@ -42,28 +42,10 @@ export async function POST(req: Request) {
     await connectDB();
     const { receiverId, text } = await req.json();
 
-    // Find or create conversation
-    let conversation = await Conversation.findOne({
-      participants: { $all: [session.user.id, receiverId] }
-    });
-
-    if (!conversation) {
-      conversation = await Conversation.create({
-        participants: [session.user.id, receiverId]
-      });
-    }
-
-    // Create message
     const message = await Message.create({
-      conversationId: conversation._id,
       sender: session.user.id,
-      text
-    });
-
-    // Update conversation's lastMessage
-    await Conversation.findByIdAndUpdate(conversation._id, {
-      lastMessage: message._id,
-      updatedAt: new Date()
+      receiver: receiverId,
+      text,
     });
 
     return NextResponse.json(message);

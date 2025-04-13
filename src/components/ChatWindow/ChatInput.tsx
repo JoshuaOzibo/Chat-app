@@ -26,19 +26,14 @@ export default function ChatInput({ receiverId }: ChatInputProps) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          receiverId,
+          receiverId: receiverId,
           text: message,
+          sender: session.user.id
         }),
       });
 
       const newMessage = await response.json();
-
-      // Emit to socket
-      socket.emit("sendMessage", {
-        ...newMessage,
-        sender: session.user.id
-      });
-
+      socket.emit("sendMessage", newMessage);
       setMessage("");
     } catch (err) {
       console.error("Error sending message:", err);

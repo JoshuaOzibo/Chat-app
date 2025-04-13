@@ -6,8 +6,8 @@ import ChatInput from "./ChatInput";
 import Chat from "@/app/chat/page";
 
 export default function ChatWindow() {
-  // TODO: Replace with actual selected user ID from your chat state management
-  const selectedUserId = "temp-receiver-id";
+  // For testing, use the ID of your second user account
+  const selectedUserId = "67facdd5c733d51b2e863e27"; // Replace with actual user ID
 
   return (
     <section className="bg-amber-500 overflow-hidden relative flex justify-between w-full">
