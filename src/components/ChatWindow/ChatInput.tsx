@@ -1,62 +1,47 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useSession } from "next-auth/react";
 import socket from "@/app/lib/socket";
 import {IoMdPaperPlaneIcon} from "@/Icons/Icons"
-import Button from '@/components/ui/customUi/button'
+import Button from '@/components/ui/customUi/button';
 
-export default function ChatInput() {
+interface ChatInputProps {
+  receiverId: string;
+}
+
+export default function ChatInput({ receiverId }: ChatInputProps) {
+  const { data: session } = useSession();
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!socket.connected) {
-      socket.connect();
-    }
-
-    socket.on("connect", () => {
-      console.log(" Connected to socket:", socket.id);
-    });
-
-    socket.on("connect_error", (err) => {
-      console.error(" Connection error:", err);
-    });
-
-    return () => {
-      socket.off("connect");
-      socket.off("connect_error");
-    };
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!message.trim()) return;
+    if (!message.trim() || !session?.user?.id) return;
 
     setIsSending(true);
 
     try {
-      await fetch("/api/messages", {
+      const response = await fetch("/api/messages", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          sender: "Joshua",
-          receiver: "Jenny",
+          receiverId,
           text: message,
         }),
       });
 
-      // Now emit structured message object
+      const newMessage = await response.json();
+
+      // Emit to socket
       socket.emit("sendMessage", {
-        sender: "Joshua",
-        text: message,
+        ...newMessage,
+        sender: session.user.id
       });
 
       setMessage("");
-      setError(null);
     } catch (err) {
-      setError("Error sending message");
+      console.error("Error sending message:", err);
     } finally {
       setIsSending(false);
     }
@@ -75,7 +60,8 @@ export default function ChatInput() {
           className="w-full outline-none mx-3 rounded" 
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          disabled={isSending} type="text" 
+          disabled={isSending}
+          type="text" 
           placeholder="Write your message..."
         />
         <div className="flex gap-3">

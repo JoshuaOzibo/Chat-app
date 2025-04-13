@@ -4,7 +4,11 @@ const ContactItem = () => {
       <main className="bg-cyan-700 space-y-1">
         {[1, 2, 3, 4, 5].map((contact, index) => (
           <div className="bg-green-700 py-5 px-3 flex" key={index}>
-            <img src="" alt="" />
+            <img 
+              src="/default-avatar.png" 
+              alt="User avatar" 
+              className="w-10 h-10 rounded-full mr-3"
+            />
             <aside className="flex w-full justify-between">
               <div className=" w-2/3">
                 <h1 className="text-xs font-bold">Josephin water</h1>

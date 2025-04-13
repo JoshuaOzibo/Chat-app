@@ -6,7 +6,7 @@ import ContactItem from "./ContactItem";
 const ChatSidebar = () => {
   return (
     <>
-      <section className="bg-red-500 flex lg:w-[600px] md:w-[350px] w-[300px]">
+      <section className="bg-red-500 flex lg:w-[600px] md:w-[550px] w-[300px]">
         {/* subsidebar */}
         <SubSidebar />
         <main className="w-full">
@@ -33,7 +33,7 @@ const ChatSidebar = () => {
           </div>
 
           {/* main chat */}
-          <main className=" my-5 overflow-y-auto">
+          <main className=" my-5 overflow-y-scroll">
             <ContactItem />
           </main>
         </main>
