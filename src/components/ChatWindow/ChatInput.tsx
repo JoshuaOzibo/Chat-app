@@ -18,29 +18,46 @@ export default function ChatInput({ receiverId }: ChatInputProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!message.trim() || !session?.user?.id) return;
-
-    setIsSending(true);
-
+  
+    const tempMessage = {
+      text: message,
+      sender: session.user.id,
+      receiverId: receiverId,
+      createdAt: new Date().toISOString(), // Optional for local UI use
+      pending: true, // Optional flag if you want to mark it as "sending"
+    };
+  
+    // Emit message immediately for UI update
+    // socket.emit("sendMessage", tempMessage);
+  
+    // Clear input immediately
+    setMessage("");
+  
     try {
       const response = await fetch("/api/messages", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          receiverId: receiverId,
           text: message,
-          sender: session.user.id
+          receiverId: receiverId,
+          sender: session.user.id,
         }),
       });
-
-      const newMessage = await response.json();
-      socket.emit("sendMessage", newMessage);
-      setMessage("");
+  
+      if (!response.ok) throw new Error("Failed to send message");
+  
+      const savedMessage = await response.json();
+  
+      // Optionally: Emit again with the saved message if needed
+      socket.emit("sendMessage", savedMessage);
+  
     } catch (err) {
       console.error("Error sending message:", err);
-    } finally {
-      setIsSending(false);
+      alert("Failed to send message. Please try again.");
+      // Optionally: Send a rollback or error state
     }
   };
+  
 
   return (
     <div className="bg-blue-800 flex absolute bottom-0 w-full p-4">
