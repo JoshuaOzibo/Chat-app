@@ -84,7 +84,7 @@ export default function ChatWindow({ selectedUser }: ChatWindowProps) {
           </div>
           <div className="absolute bottom-0 left-0 right-0">
             <ChatInput 
-              receiverId={selectedUser.email} 
+              receiverId={selectedUser.email}
               onMessageSent={handleNewMessage}
             />
           </div>

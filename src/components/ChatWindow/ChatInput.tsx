@@ -71,6 +71,7 @@ export default function ChatInput({ receiverId, onMessageSent }: ChatInputProps)
           text: message,
           receiverId: receiverId,
           sender: session.user.id,
+          createdAt: new Date().toISOString(),
         }),
       });
   

@@ -9,6 +9,7 @@ interface MessageType {
   _id: string;
   sender: string;
   senderEmail: string;
+  senderName: string;
   text: string;
   receiver: string;
   createdAt: string;
@@ -74,7 +75,10 @@ export default function ChatPage({ isTyping }: ChatProps) {
         message.sender === session?.user?.id ? (
           <SenderMessage key={message._id} message={message} />
         ) : (
-          <ReceiverMessage key={message._id} message={message} />
+          <ReceiverMessage key={message._id} message={{
+            ...message,
+            senderName: message.senderEmail.split('@')[0]
+          }} />
         )
       ))}
       {isTyping && (
@@ -83,7 +87,9 @@ export default function ChatPage({ isTyping }: ChatProps) {
             _id: 'typing-indicator',
             senderEmail: '',
             text: '...',
-            isTyping: true
+            isTyping: true,
+            senderName: 'User',
+            createdAt: new Date().toISOString()
           }} 
         />
       )}

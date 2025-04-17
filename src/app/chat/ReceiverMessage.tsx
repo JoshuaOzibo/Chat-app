@@ -7,6 +7,8 @@ interface MessageProps {
     senderEmail: string;
     text: string;
     isTyping?: boolean;
+    senderName: string;
+    createdAt: string;
   }
 }
 
@@ -28,7 +30,10 @@ const ReceiverMessage = ({ message }: MessageProps) => {
   }
 
   return (
-    <ReceiverMessageBubble senderEmail={message.senderEmail} message={message} />
+    <ReceiverMessageBubble 
+      senderName={message.senderName}
+      message={message} 
+    />
   );
 };
 
