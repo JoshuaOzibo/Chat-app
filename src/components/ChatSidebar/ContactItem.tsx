@@ -11,7 +11,6 @@ interface User {
 }
 
 const ContactItem = () => {
-  const { data: session } = useSession();
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
@@ -45,7 +44,7 @@ const ContactItem = () => {
             <aside className="flex w-full justify-between">
               <div className="w-2/3">
                 <h1 className="text-xs font-bold">{user.name}</h1>
-                <p className="text-xs font-extralight">{user.email}</p>
+                {/* <p className="text-xs font-extralight">{user.email}</p> */}
               </div>
             </aside>
           </div>

@@ -9,14 +9,22 @@ export const authOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code"
+        }
+      }
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async signIn({ user }: { user: NextAuthUser }) {
       try {
         await connectDB();
         
-        const existingUser = await User.findOne({ googleId: user.id });
+        const existingUser = await User.findOne({ email: user.email });
 
         if (!existingUser) {
           await User.create({
@@ -38,10 +46,16 @@ export const authOptions = {
     },
 
     async session({ session, token }: { session: Session; token: JWT }) {
-      (session.user as { id?: string }).id = token.sub;
+      if (session.user) {
+        (session.user as any).id = token.sub;
+      }
       return session;
     },
   },
+  pages: {
+    signIn: '/login',
+    error: '/login',
+  }
 };
 
 const handler = NextAuth(authOptions);
