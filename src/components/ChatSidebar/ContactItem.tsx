@@ -10,7 +10,12 @@ interface User {
   image: string;
 }
 
-const ContactItem = () => {
+interface ContactItemProps {
+  onSelectUser: (user: User) => void;
+  selectedUser: User | null;
+}
+
+const ContactItem = ({ onSelectUser, selectedUser }: ContactItemProps) => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
@@ -35,7 +40,13 @@ const ContactItem = () => {
     <section className="bg-purple-700">
       <main className="bg-cyan-700 space-y-1">
         {users.map((user) => (
-          <div className="bg-green-700 py-5 px-3 flex" key={user._id}>
+          <div 
+            className={`py-5 px-3 flex cursor-pointer transition-colors ${
+              selectedUser?._id === user._id ? 'bg-green-800' : 'bg-green-700 hover:bg-green-600'
+            }`}
+            key={user._id}
+            onClick={() => onSelectUser(user)}
+          >
             <img 
               src={user.image || "/default-avatar.png"} 
               alt={`${user.name}'s avatar`} 

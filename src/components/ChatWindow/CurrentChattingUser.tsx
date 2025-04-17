@@ -2,14 +2,24 @@ import { Badge } from "@/components/ui/badge";
 import {FaVolumeHighIcon} from '@/Icons/Icons'
 import {FiSearchIcon, IoCallOutlineIcon, MdOutlineVideocamIcon, AiOutlineAppstoreIcon, CiMenuKebabIcon} from '@/Icons/Icons'
 
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+  image: string;
+}
 
-export default function CurrentChattingUser() {
+interface CurrentChattingUserProps {
+  user: User;
+}
+
+const CurrentChattingUser = ({ user }: CurrentChattingUserProps) => {
   return (
     <>
       <section className="bg-blue-500 flex absolute justify-between items-center lg:w-[70%] w-[90%] py-6 px-10 top-5 left-1/2 -translate-x-1/2">
         <main>
           {/* <img src="" alt="" /> */}
-          <h1>Josephin water</h1>
+          <h1>{user.name}</h1>
           <Badge variant="outline" className="bg-red-700">Active</Badge>
         </main>
 
@@ -29,4 +39,6 @@ export default function CurrentChattingUser() {
       </section>
     </>
   );
-}
+};
+
+export default CurrentChattingUser;

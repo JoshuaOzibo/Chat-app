@@ -2,20 +2,26 @@
 
 import { useSession } from 'next-auth/react';
 import { useState, useEffect } from 'react';
-import CurrentChattingUser from "@/components/ChatWindow/CurrentChattingUser";
-import RightBar from "@/components/ChatWindow/RightBar";
+import CurrentChattingUser from "./CurrentChattingUser";
+import RightBar from "./RightBar";
 import ChatInput from "./ChatInput";
 import Chat from "@/app/chat/page";
 import socket from "@/app/lib/socket";
 
-export default function ChatWindow() {
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+  image: string;
+}
+
+interface ChatWindowProps {
+  selectedUser: User;
+}
+
+export default function ChatWindow({ selectedUser }: ChatWindowProps) {
   const { data: session } = useSession();
   const [isTyping, setIsTyping] = useState(false);
-  
-  // For testing, use the email of the other user
-  const receiverEmail = session?.user?.email === "joshuamichaelozibo@gmail.com" 
-    ? "joshuamichaelchinedu@gmail.com" 
-    : "joshuamichaelozibo@gmail.com";
 
   useEffect(() => {
     socket.on("userTyping", (data) => {
@@ -39,15 +45,15 @@ export default function ChatWindow() {
   return (
     <section className="bg-amber-500 overflow-hidden relative flex justify-between w-full">
       <main className="bg-emerald-700 relative w-full">
-        <CurrentChattingUser />
+        <CurrentChattingUser user={selectedUser} />
         <div className="flex-1 overflow-hidden">
           <Chat isTyping={isTyping} />
         </div>
         <div className="absolute bottom-0 left-0 right-0">
-          <ChatInput receiverId={receiverEmail} />
+          <ChatInput receiverId={selectedUser.email} />
         </div>
       </main>
-      <aside className=" bg-amber-800 right-0 flex justify-end">
+      <aside className="bg-amber-800 right-0 flex justify-end">
         <RightBar />
       </aside>
     </section>
