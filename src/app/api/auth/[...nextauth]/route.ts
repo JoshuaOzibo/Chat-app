@@ -2,7 +2,7 @@ import NextAuth, { Session, User as NextAuthUser } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { JWT } from "next-auth/jwt";
 import User from "@/models/User";
-import connectDB from "@/app/lib/Mongo"; // adjust the path as needed
+import connectDB from "@/app/lib/Mongo"; 
 
 export const authOptions = {
   providers: [
