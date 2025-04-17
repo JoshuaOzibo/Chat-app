@@ -8,9 +8,10 @@ import Button from '@/components/ui/customUi/button';
 
 interface ChatInputProps {
   receiverId: string;
+  onMessageSent: (message: any) => void;
 }
 
-export default function ChatInput({ receiverId }: ChatInputProps) {
+export default function ChatInput({ receiverId, onMessageSent }: ChatInputProps) {
   const { data: session } = useSession();
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
@@ -62,17 +63,6 @@ export default function ChatInput({ receiverId }: ChatInputProps) {
     e.preventDefault();
     if (!message.trim() || !session?.user?.id) return;
   
-    const tempMessage = {
-      text: message,
-      sender: session.user.id,
-      receiverId: receiverId,
-      createdAt: new Date().toISOString(),
-      pending: true,
-    };
-  
-    setMessage("");
-    emitStopTyping();
-  
     try {
       const response = await fetch("/api/messages", {
         method: "POST",
@@ -87,7 +77,10 @@ export default function ChatInput({ receiverId }: ChatInputProps) {
       if (!response.ok) throw new Error("Failed to send message");
   
       const savedMessage = await response.json();
+      onMessageSent(savedMessage);
       socket.emit("sendMessage", savedMessage);
+      setMessage("");
+      emitStopTyping();
   
     } catch (err) {
       console.error("Error sending message:", err);
