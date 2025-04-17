@@ -5,6 +5,8 @@ interface MessageProps {
     message: {
         _id: string;
         text: string;
+        senderName: string;
+        createdAt: string;
     }
 }
 

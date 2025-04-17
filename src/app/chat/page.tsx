@@ -73,7 +73,10 @@ export default function ChatPage({ isTyping }: ChatProps) {
     <div className="flex flex-col space-y-4 p-4 pt-32 pb-24 overflow-y-auto h-screen">
       {messages.map((message) => (
         message.sender === session?.user?.id ? (
-          <SenderMessage key={message._id} message={message} />
+          <SenderMessage key={message._id} message={{
+            ...message,
+            senderName: session.user.name || message.senderEmail.split('@')[0]
+          }} />
         ) : (
           <ReceiverMessage key={message._id} message={{
             ...message,
