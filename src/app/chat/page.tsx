@@ -14,7 +14,11 @@ interface MessageType {
   createdAt: string;
 }
 
-export default function ChatPage() {
+interface ChatProps {
+  isTyping: boolean;
+}
+
+export default function ChatPage({ isTyping }: ChatProps) {
   const { data: session } = useSession();
   const [messages, setMessages] = useState<MessageType[]>([]);
   const [socketConnected, setSocketConnected] = useState(false);
@@ -73,6 +77,16 @@ export default function ChatPage() {
           <ReceiverMessage key={message._id} message={message} />
         )
       ))}
+      {isTyping && (
+        <ReceiverMessage 
+          message={{
+            _id: 'typing-indicator',
+            senderEmail: '',
+            text: '...',
+            isTyping: true
+          }} 
+        />
+      )}
     </div>
   );
 }
