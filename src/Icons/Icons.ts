@@ -7,6 +7,7 @@ import { MdOutlineVideocam } from "react-icons/md";
 import { CiMenuKebab } from "react-icons/ci";
 import { TiMicrophoneOutline } from "react-icons/ti";
 import { TiPlus } from "react-icons/ti";
+import { HiOutlineEmojiHappy } from "react-icons/hi";
 
 // Grid menu Icon
 export const AiOutlineAppstoreIcon =  AiOutlineAppstore;
@@ -33,3 +34,7 @@ export const TiMicrophoneOutlineIcon =  TiMicrophoneOutline;
 
 //Plus
 export const TiPlusIcon =  TiPlus;
+
+
+//happy face 
+export const HiOutlineEmojiHappyIcon =  HiOutlineEmojiHappy;

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import socket from "@/app/lib/socket";
-import {IoMdPaperPlaneIcon} from "@/Icons/Icons"
+import {IoMdPaperPlaneIcon, TiMicrophoneOutlineIcon, TiPlusIcon, HiOutlineEmojiHappyIcon} from "@/Icons/Icons"
 import Button from '@/components/ui/customUi/button';
 
 interface ChatInputProps {
@@ -63,11 +63,11 @@ export default function ChatInput({ receiverId }: ChatInputProps) {
     <div className="bg-blue-800 flex absolute bottom-0 w-full p-4">
       <div className="flex gap-3">
       <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={ <IoMdPaperPlaneIcon color="#ff8b4e" />} />
-      <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={ <IoMdPaperPlaneIcon color="#ff8b4e" />} />
-      <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={ <IoMdPaperPlaneIcon color="#ff8b4e" />} />
+      <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={ <HiOutlineEmojiHappyIcon color="#ff8b4e" />} />
+      <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={ <TiPlusIcon color="#ff8b4e" />} />
 
       </div>
-      <form onSubmit={handleSubmit} className=" relative w-full flex items-center">
+      <form onSubmit={handleSubmit}  className=" relative w-full flex items-center">
         <input
           className="w-full outline-none mx-3 rounded" 
           value={message}
@@ -77,7 +77,7 @@ export default function ChatInput({ receiverId }: ChatInputProps) {
           placeholder="Write your message..."
         />
         <div className="flex gap-3">
-        <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={ <IoMdPaperPlaneIcon color="#ff8b4e" />} />
+        <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={ <TiMicrophoneOutlineIcon color="#ff8b4e" />} />
         <Button type="submit" className="bg-[#ffdac5] p-2 rounded-full" value={ <IoMdPaperPlaneIcon color="#ff8b4e" />} />
         </div>
       </form>
