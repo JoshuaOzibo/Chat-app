@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ChatWindow from "../ChatWindow/ChatWindow";
 import ChatSidebar from "../ChatSidebar/ChatSidebar";
+import { SidebarProvider } from "@/context/SidebarContext";
 
 const Chat = () => {
   const [selectedUser, setSelectedUser] = useState<{
@@ -13,10 +14,12 @@ const Chat = () => {
   } | null>(null);
 
   return (
-    <div className="flex w-full">
-      <ChatSidebar onSelectUser={setSelectedUser} selectedUser={selectedUser} />
+    <SidebarProvider>
+      <div className="flex w-full">
+        <ChatSidebar onSelectUser={setSelectedUser} selectedUser={selectedUser} />
         <ChatWindow selectedUser={selectedUser} />
-    </div>
+      </div>
+    </SidebarProvider>
   );
 };
 

@@ -1,13 +1,20 @@
 import { signOut } from "next-auth/react";
 import Button from "../ui/customUi/button";
 import { IoMdPaperPlaneIcon } from "@/Icons/Icons";
+import { useSidebar } from "@/context/SidebarContext";
 
 const SubSidebar = () => {
+  const { isSubSidebarVisible } = useSidebar();
+
   return (
-    <main className="bg-blue-900 flex flex-col space-y-20 w-[130px] h-full">
+    <main 
+      className={`bg-blue-900 left-20 flex flex-col space-y-20 h-full
+        transition-transform duration-300 ease-in-out
+        ${isSubSidebarVisible ? 'translate-x-0 w-[130px]' : '-translate-x-20 w-0'}`}
+    >
       <div className="border-b-1">{/* img */}</div>
       <div className="flex justify-center w-full">
-      <Button
+        <Button
           className="bg-[#ffdac5] p-2 rounded-full"
           value={<IoMdPaperPlaneIcon />}
           type="button"

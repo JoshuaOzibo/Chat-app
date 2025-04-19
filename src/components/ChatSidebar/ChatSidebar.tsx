@@ -2,6 +2,7 @@
 import { AiOutlineAppstoreIcon, FiSearchIcon } from "@/Icons/Icons";
 import SubSidebar from "./SubSidebar";
 import ContactItem from "./ContactItem";
+import { useSidebar } from "@/context/SidebarContext";
 
 interface User {
   _id: string;
@@ -16,8 +17,12 @@ interface ChatSidebarProps {
 }
 
 const ChatSidebar = ({ onSelectUser, selectedUser }: ChatSidebarProps) => {
+  const { toggleSubSidebar, isSubSidebarVisible } = useSidebar();
+
   return (
-    <section className="bg-red-500 flex lg:w-[600px] md:w-[550px] w-[300px]">
+    <section className={`bg-red-500 flex transition-all duration-300 ease-in-out
+      ${isSubSidebarVisible ? 'lg:w-[600px] md:w-[550px]' : 'lg:w-[470px] md:w-[420px]'} 
+      w-[300px]`}>
       <SubSidebar />
       <main className="w-full">
         <div className="px-2 space-y-2">
@@ -26,7 +31,9 @@ const ChatSidebar = ({ onSelectUser, selectedUser }: ChatSidebarProps) => {
               <h1 className="text-2xl font-black">Recent Chats</h1>
               <p>Chat from your friends 😘</p>
             </div>
-            <AiOutlineAppstoreIcon size={25} />
+            <button onClick={toggleSubSidebar} className="cursor-pointer">
+              <AiOutlineAppstoreIcon size={25} />
+            </button>
           </main>
 
           <main className="bg-yellow-800 flex items-center justify-between">
