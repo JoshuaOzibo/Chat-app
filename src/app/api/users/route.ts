@@ -7,7 +7,7 @@ import { authOptions } from '../auth/[...nextauth]/route';
 export async function GET(req: Request) {
   try {
     const session = await getServerSession(authOptions);
-    console.log('Session:', session);
+    // console.log('Session:', session);
 
     if (!session?.user?.email) {
       console.log('No session or user email');
@@ -19,9 +19,7 @@ export async function GET(req: Request) {
     // Get all users except the current user using email
     const users = await User.find({ 
       email: { $ne: session.user.email } // Filter by email instead of googleId
-    }).select('name email image googleId');
-
-    console.log('Found users:', users);
+    }).select('name email image _id'); 
 
     return NextResponse.json(users);
   } catch (error) {

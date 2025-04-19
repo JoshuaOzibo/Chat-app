@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import connectDB from '@/app/lib/Mongo';
 import Message from '@/models/Message';
-import Conversation from '@/models/Conversation';
 import { authOptions } from '../auth/[...nextauth]/route';
 
 export async function GET(req: Request) {
@@ -15,10 +14,10 @@ export async function GET(req: Request) {
 
     await connectDB();
     
-    console.log('Fetching messages for user:', {
-      id: session.user.id,
-      email: session.user.email
-    });
+    // console.log('Fetching messages for user:', {
+    //   id: session.user.id,
+    //   email: session.user.email
+    // });
     
     // Get all messages where user is either sender or receiver
     const messages = await Message.find({
@@ -30,10 +29,10 @@ export async function GET(req: Request) {
       ]
     }).sort({ createdAt: -1 });
 
-    console.log('Found messages:', messages);
+    // console.log('Found messages:', messages);
     return NextResponse.json(messages);
   } catch (error) {
-    console.error('Error fetching messages:', error);
+    // console.error('Error fetching messages:', error);
     return NextResponse.json({ error: 'Failed to fetch messages' }, { status: 500 });
   }
 }
@@ -48,12 +47,12 @@ export async function POST(req: Request) {
     await connectDB();
     const { receiverId, text } = await req.json();
 
-    console.log('Creating message:', {
-      sender: session.user.id,
-      senderEmail: session.user.email,
-      receiver: receiverId,
-      text
-    });
+    // console.log('Creating message:', {
+    //   sender: session.user.id,
+    //   senderEmail: session.user.email,
+    //   receiver: receiverId,
+    //   text
+    // });
 
     const message = await Message.create({
       sender: session.user.id,

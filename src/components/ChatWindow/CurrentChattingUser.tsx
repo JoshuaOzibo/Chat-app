@@ -1,3 +1,5 @@
+'use client'
+
 import { Badge } from "@/components/ui/badge";
 import { FaVolumeHighIcon } from "@/Icons/Icons";
 import {
@@ -25,7 +27,6 @@ const CurrentChattingUser = ({ user }: CurrentChattingUserProps) => {
   const { toggleRightBar } = useSidebar();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log('Button clicked in CurrentChattingUser');
     toggleRightBar();
   };
 
