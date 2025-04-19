@@ -8,6 +8,7 @@ import {
   CiMenuKebabIcon,
 } from "@/Icons/Icons";
 import Button from "@/components/ui/customUi/button";
+import { useSidebar } from "@/context/SidebarContext";
 
 interface User {
   _id: string;
@@ -21,6 +22,13 @@ interface CurrentChattingUserProps {
 }
 
 const CurrentChattingUser = ({ user }: CurrentChattingUserProps) => {
+  const { toggleRightBar } = useSidebar();
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log('Button clicked in CurrentChattingUser');
+    toggleRightBar();
+  };
+
   return (
     <>
       <section className="bg-blue-500 flex space-x-5 absolute items-center lg:w-[70%] w-[90%] py-6 px-10 top-5 left-1/2 -translate-x-1/2">
@@ -63,8 +71,9 @@ const CurrentChattingUser = ({ user }: CurrentChattingUserProps) => {
             />
             <Button
               type="button"
-              className="bg-[#ffdac5] p-[5px] rounded-full"
+              className="bg-[#ffdac5] cursor-pointer p-[5px] rounded-full"
               value={<AiOutlineAppstoreIcon />}
+              onClick={handleClick}
             />
             <Button
               type="button"

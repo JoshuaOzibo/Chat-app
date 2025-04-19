@@ -94,9 +94,7 @@ export default function ChatWindow({ selectedUser }: ChatWindowProps) {
           <NoChatSelected />
         </div>
       )}
-      <aside className="bg-amber-800 right-0 flex justify-end">
-        <RightBar />
-      </aside>
+      <RightBar />
     </section>
   );
 }

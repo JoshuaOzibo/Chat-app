@@ -2,6 +2,7 @@
 
 import { SessionProvider } from "next-auth/react";
 import { Session } from "next-auth";
+import { SidebarProvider } from "@/context/SidebarContext";
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -9,5 +10,11 @@ interface ProvidersProps {
 }
 
 export default function Providers({ children, session }: ProvidersProps) {
-  return <SessionProvider session={session}>{children}</SessionProvider>;
+  return (
+    <SessionProvider session={session}>
+      <SidebarProvider>
+        {children}
+      </SidebarProvider>
+    </SessionProvider>
+  );
 }
