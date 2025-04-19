@@ -1,7 +1,6 @@
 import { useSidebar } from "@/context/SidebarContext";
 import Button from "../ui/customUi/button";
 import {
-  IoMdPaperPlaneIcon,
   CiMenuKebabIcon,
   FaRegFileIcon,
   CgNotesIcon,

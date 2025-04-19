@@ -1,16 +1,26 @@
 import { signOut } from "next-auth/react";
 import Button from "../ui/customUi/button";
-import { IoMdPaperPlaneIcon } from "@/Icons/Icons";
+import {
+  IoMdPaperPlaneIcon,
+  IoIosStarIcon,
+  HiClipboardDocumentListIcon,
+  IoIosContactsIcon,
+  FaBellIcon,
+  CiSettingsIcon,
+  IoMoonOutlineIcon,
+  FaRegLightbulbIcon,
+  MdOutlinePowerSettingsNewIcon,
+} from "@/Icons/Icons";
 import { useSidebar } from "@/context/SidebarContext";
 
 const SubSidebar = () => {
   const { isSubSidebarVisible } = useSidebar();
 
   return (
-    <main 
+    <main
       className={`bg-blue-900 flex flex-col space-y-20 h-full overflow-hidden
         transition-all duration-500 ease-in-out
-        ${isSubSidebarVisible ? 'w-[130px] opacity-100' : 'w-0 opacity-0'}`}
+        ${isSubSidebarVisible ? "w-[130px] opacity-100" : "w-0 opacity-0"}`}
     >
       <div className="border-b-1">{/* img */}</div>
       <div className="flex justify-center w-full">
@@ -23,46 +33,43 @@ const SubSidebar = () => {
       <div className=" space-y-8 bg-amber-700 flex items-center flex-col">
         <Button
           className="bg-[#ffdac5] p-2 rounded-full"
-          value={<IoMdPaperPlaneIcon />}
+          value={<IoIosStarIcon />}
           type="button"
         />
         <Button
           className="bg-[#ffdac5] p-2 rounded-full"
-          value={<IoMdPaperPlaneIcon />}
+          value={<HiClipboardDocumentListIcon />}
           type="button"
         />
         <Button
           className="bg-[#ffdac5] p-2 rounded-full"
-          value={<IoMdPaperPlaneIcon />}
+          value={<IoIosContactsIcon />}
           type="button"
         />
         <Button
           className="bg-[#ffdac5] p-2 rounded-full"
-          value={<IoMdPaperPlaneIcon />}
+          value={<FaBellIcon />}
           type="button"
         />
         <Button
           className="bg-[#ffdac5] p-2 rounded-full"
-          value={<IoMdPaperPlaneIcon />}
+          value={<CiSettingsIcon />}
           type="button"
         />
         <Button
           className="bg-[#ffdac5] p-2 rounded-full"
-          value={<IoMdPaperPlaneIcon />}
+          value={<IoMoonOutlineIcon />}
           type="button"
         />
-        
       </div>
 
       <div className=" space-y-8 py-10 flex items-center flex-col">
-      <Button
+        <Button
+          onClick={() => signOut({ callbackUrl: "/login" })}
           className="bg-[#ffdac5] p-2 rounded-full"
-          value={<IoMdPaperPlaneIcon />}
+          value={<MdOutlinePowerSettingsNewIcon />}
           type="button"
         />
-      <button onClick={() => signOut({ callbackUrl: "/login" })}>
-        Sign Out
-      </button>
       </div>
     </main>
   );
