@@ -8,9 +8,9 @@ const SubSidebar = () => {
 
   return (
     <main 
-      className={`bg-blue-900 left-20 flex flex-col space-y-20 h-full
-        transition-transform duration-300 ease-in-out
-        ${isSubSidebarVisible ? 'translate-x-0 w-[130px]' : '-translate-x-20 w-0'}`}
+      className={`bg-blue-900 flex flex-col space-y-20 h-full overflow-hidden
+        transition-all duration-500 ease-in-out
+        ${isSubSidebarVisible ? 'w-[130px] opacity-100' : 'w-0 opacity-0'}`}
     >
       <div className="border-b-1">{/* img */}</div>
       <div className="flex justify-center w-full">
