@@ -5,8 +5,12 @@ const Customizer = () => {
     <section>
       <main>
         <div>
+          <div>
           <h1>Customizer</h1>
           <p>Real Time Customize</p>
+          </div>
+
+          {/* icon */}
         </div>
 
         <div>
