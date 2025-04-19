@@ -44,7 +44,7 @@ const ContactItem = ({ onSelectUser, selectedUser }: ContactItemProps) => {
         {users.map((user) => (
           <div 
             className={`py-5 px-3 rounded-r-sm flex cursor-pointer transition-colors ${
-              selectedUser?._id === user._id ? 'bg-[#aacbdf] border-l-5 border-[#0d91dd]' : 'bg-green-700 hover:bg-green-600'
+              selectedUser?._id === user._id ? 'bg-[#cfe9fb] border-l-5 border-[#0d91dd]' : 'bg-green-700 hover:bg-green-600'
             }`}
             key={user._id}
             onClick={() => onSelectUser(user)}

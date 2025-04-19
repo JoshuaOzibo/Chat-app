@@ -24,7 +24,7 @@ const RightBar = () => {
       >
         <div className="space-y-2">
           <Button
-            className="bg-[#ffdac5] p-2 rounded-full"
+            className="bg-[#cfe9fb] p-2 rounded-full"
             value={<AiOutlineAppstoreIcon />}
             type="button"
           />
@@ -32,7 +32,7 @@ const RightBar = () => {
         </div>
         <div className="space-y-2">
           <Button
-            className="bg-[#ffdac5] p-2 rounded-full"
+            className="bg-[#cfe9fb] p-2 rounded-full"
             value={<FaRegFileIcon />}
             type="button"
           />
@@ -40,7 +40,7 @@ const RightBar = () => {
         </div>
         <div className="space-y-2">
           <Button
-            className="bg-[#ffdac5] p-2 rounded-full"
+            className="bg-[#cfe9fb] p-2 rounded-full"
             value={<CgNotesIcon />}
             type="button"
           />
@@ -48,7 +48,7 @@ const RightBar = () => {
         </div>
         <div className="space-y-2">
           <Button
-            className="bg-[#ffdac5] p-2 rounded-full"
+            className="bg-[#cfe9fb] p-2 rounded-full"
             value={<FcTodoListIcon />}
             type="button"
           />
@@ -56,7 +56,7 @@ const RightBar = () => {
         </div>
         <div className="space-y-2">
           <Button
-            className="bg-[#ffdac5] p-2 rounded-full"
+            className="bg-[#cfe9fb] p-2 rounded-full"
             value={<LuClockIcon />}
             type="button"
           />
@@ -69,7 +69,7 @@ const RightBar = () => {
         ${isRightBarVisible ? "opacity-100" : "opacity-0"}`}
       >
         <Button
-          className="bg-[#ffdac5] p-2 rounded-full"
+          className="bg-[#cfe9fb] p-2 rounded-full"
           value={<CiSettingsIcon />}
           type="button"
         />
