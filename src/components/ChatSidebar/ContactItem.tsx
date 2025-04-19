@@ -36,13 +36,15 @@ const ContactItem = ({ onSelectUser, selectedUser }: ContactItemProps) => {
     fetchUsers();
   }, []);
 
+  // selectedUser
+
   return (
-    <section className="bg-purple-700">
-      <main className="bg-cyan-700 space-y-1">
+    <section className="mt-5">
+      <main className=" h-[700px] mr-1 overflow-y-auto space-y-1">
         {users.map((user) => (
           <div 
-            className={`py-5 px-3 flex cursor-pointer transition-colors ${
-              selectedUser?._id === user._id ? 'bg-green-800' : 'bg-green-700 hover:bg-green-600'
+            className={`py-5 px-3 rounded-r-sm flex cursor-pointer transition-colors ${
+              selectedUser?._id === user._id ? 'bg-[#aacbdf] border-l-5 border-[#0d91dd]' : 'bg-green-700 hover:bg-green-600'
             }`}
             key={user._id}
             onClick={() => onSelectUser(user)}

@@ -20,32 +20,32 @@ const ChatSidebar = ({ onSelectUser, selectedUser }: ChatSidebarProps) => {
   const { toggleSubSidebar, isSubSidebarVisible } = useSidebar();
 
   return (
-    <section className={`bg-red-500 flex transition-all duration-500 ease-in-out
+    <section className={` flex transition-all duration-500 ease-in-out
       ${isSubSidebarVisible ? 'lg:w-[600px] md:w-[550px]' : 'lg:w-[470px] md:w-[420px]'} 
       w-[300px]`}>
       <SubSidebar />
       <main className="w-full">
-        <div className="px-2 space-y-2">
-          <main className="bg-yellow-800 flex items-center justify-between">
+        <div className="px-2 mt-10 space-y-5">
+          <main className=" flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-black">Recent Chats</h1>
+              <h1 className="text-xl font-black">Recent Chats</h1>
               <p>Chat from your friends 😘</p>
             </div>
             <button onClick={toggleSubSidebar} className="cursor-pointer">
-              <AiOutlineAppstoreIcon size={25} />
+              <AiOutlineAppstoreIcon size={22} />
             </button>
           </main>
 
-          <main className="bg-yellow-800 flex items-center justify-between">
+          <main className=" flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-black">Chat</h2>
+              <h2 className="text-xl font-black">Chat</h2>
               <p>Start New Conversation</p>
             </div>
-            <FiSearchIcon size={25} />
+            <FiSearchIcon size={22} />
           </main>
         </div>
 
-        <main className="my-5 overflow-y-scroll">
+        <main className="my-5">
           <ContactItem onSelectUser={onSelectUser} selectedUser={selectedUser} />
         </main>
       </main>

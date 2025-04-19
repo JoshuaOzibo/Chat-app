@@ -18,7 +18,7 @@ const SubSidebar = () => {
 
   return (
     <main
-      className={`bg-blue-900 flex flex-col space-y-20 h-full overflow-hidden
+      className={` flex border-r flex-col space-y-20 h-full overflow-hidden
         transition-all duration-500 ease-in-out
         ${isSubSidebarVisible ? "w-[130px] opacity-100" : "w-0 opacity-0"}`}
     >
@@ -30,7 +30,7 @@ const SubSidebar = () => {
           type="button"
         />
       </div>
-      <div className=" space-y-8 bg-amber-700 flex items-center flex-col">
+      <div className=" space-y-8 flex items-center flex-col">
         <Button
           className="bg-[#ffdac5] p-2 rounded-full"
           value={<IoIosStarIcon />}

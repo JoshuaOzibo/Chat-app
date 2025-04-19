@@ -1,7 +1,7 @@
 import { useSidebar } from "@/context/SidebarContext";
 import Button from "../ui/customUi/button";
 import {
-  CiMenuKebabIcon,
+  AiOutlineAppstoreIcon,
   FaRegFileIcon,
   CgNotesIcon,
   FcTodoListIcon,
@@ -16,16 +16,16 @@ const RightBar = () => {
     <section
       className={`transform transition-all duration-500 ease-in-out overflow-hidden
         ${isRightBarVisible ? "w-[90px] opacity-100" : "w-0 opacity-0"}
-        py-5 grid grid-row-2 text-center h-screen bg-yellow-500`}
+        py-5 grid grid-row-2 text-center h-screen`}
     >
       <main
-        className={`bg-red-500 py-5 space-y-16 transition-opacity duration-700
+        className={` py-5 space-y-16 transition-opacity duration-700
         ${isRightBarVisible ? "opacity-100" : "opacity-0"}`}
       >
         <div className="space-y-2">
           <Button
             className="bg-[#ffdac5] p-2 rounded-full"
-            value={<CiMenuKebabIcon />}
+            value={<AiOutlineAppstoreIcon />}
             type="button"
           />
           <h1>Apps</h1>
