@@ -1,6 +1,14 @@
 import { useSidebar } from "@/context/SidebarContext";
 import Button from "../ui/customUi/button";
-import { IoMdPaperPlaneIcon } from "@/Icons/Icons";
+import {
+  IoMdPaperPlaneIcon,
+  CiMenuKebabIcon,
+  FaRegFileIcon,
+  CgNotesIcon,
+  FcTodoListIcon,
+  LuClockIcon,
+  CiSettingsIcon,
+} from "@/Icons/Icons";
 
 const RightBar = () => {
   const { isRightBarVisible } = useSidebar();
@@ -12,22 +20,47 @@ const RightBar = () => {
         py-5 grid grid-row-2 text-center h-screen bg-yellow-500`}
     >
       <main
-        className={`bg-red-500 space-y-20 transition-opacity duration-700
+        className={`bg-red-500 py-5 space-y-16 transition-opacity duration-700
         ${isRightBarVisible ? "opacity-100" : "opacity-0"}`}
       >
-        <div>
+        <div className="space-y-2">
+          <Button
+            className="bg-[#ffdac5] p-2 rounded-full"
+            value={<CiMenuKebabIcon />}
+            type="button"
+          />
           <h1>Apps</h1>
         </div>
-        <div>
+        <div className="space-y-2">
+          <Button
+            className="bg-[#ffdac5] p-2 rounded-full"
+            value={<FaRegFileIcon />}
+            type="button"
+          />
           <h1>Files</h1>
         </div>
-        <div>
+        <div className="space-y-2">
+          <Button
+            className="bg-[#ffdac5] p-2 rounded-full"
+            value={<CgNotesIcon />}
+            type="button"
+          />
           <h1>Note</h1>
         </div>
-        <div>
+        <div className="space-y-2">
+          <Button
+            className="bg-[#ffdac5] p-2 rounded-full"
+            value={<FcTodoListIcon />}
+            type="button"
+          />
           <h1>Todo</h1>
         </div>
-        <div>
+        <div className="space-y-2">
+          <Button
+            className="bg-[#ffdac5] p-2 rounded-full"
+            value={<LuClockIcon />}
+            type="button"
+          />
           <h1>Remender</h1>
         </div>
       </main>
@@ -38,7 +71,7 @@ const RightBar = () => {
       >
         <Button
           className="bg-[#ffdac5] p-2 rounded-full"
-          value={<IoMdPaperPlaneIcon />}
+          value={<CiSettingsIcon />}
           type="button"
         />
       </main>
