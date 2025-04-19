@@ -1,6 +1,13 @@
 import { Badge } from "@/components/ui/badge";
-import {FaVolumeHighIcon} from '@/Icons/Icons'
-import {FiSearchIcon, IoCallOutlineIcon, MdOutlineVideocamIcon, AiOutlineAppstoreIcon, CiMenuKebabIcon} from '@/Icons/Icons'
+import { FaVolumeHighIcon } from "@/Icons/Icons";
+import {
+  FiSearchIcon,
+  IoCallOutlineIcon,
+  MdOutlineVideocamIcon,
+  AiOutlineAppstoreIcon,
+  CiMenuKebabIcon,
+} from "@/Icons/Icons";
+import Button from "@/components/ui/customUi/button";
 
 interface User {
   _id: string;
@@ -16,24 +23,54 @@ interface CurrentChattingUserProps {
 const CurrentChattingUser = ({ user }: CurrentChattingUserProps) => {
   return (
     <>
-      <section className="bg-blue-500 flex absolute justify-between items-center lg:w-[70%] w-[90%] py-6 px-10 top-5 left-1/2 -translate-x-1/2">
-        <main>
+      <section className="bg-blue-500 flex space-x-5 absolute items-center lg:w-[70%] w-[90%] py-6 px-10 top-5 left-1/2 -translate-x-1/2">
+        <main className="flex items-center gap-3">
           {/* <img src="" alt="" /> */}
-          <h1>{user.name}</h1>
-          <Badge variant="outline" className="bg-red-700">Active</Badge>
+          <img className="w-[50px] border h-[50px] rounded-full" src={user.image} alt="img src" />
+          <div>
+          <h1 className="font-medium text-sm">{user.name}</h1>
+          <Badge variant="outline" className="bg-red-700 -py-2">
+            Active
+          </Badge>
+          </div>
         </main>
 
-        
-        <main className="bg-red-500 flex justify-between items-center w-1/2">
+        <div className="h-8 w-[1px] bg-gray-300/50" />
+
+        <main className="flex justify-between items-center flex-1">
           <div className="flex gap-2 items-center">
-           <FaVolumeHighIcon />
-           <FiSearchIcon />
+            <Button
+              type="button"
+              className="bg-[#ffdac5] p-[5px] rounded-full"
+              value={<FaVolumeHighIcon />}
+            />
+            <Button
+              type="button"
+              className="bg-[#ffdac5] p-[5px] rounded-full"
+              value={<FiSearchIcon />}
+            />
           </div>
           <div className="flex gap-2 items-center">
-          <IoCallOutlineIcon />
-          <MdOutlineVideocamIcon />
-          <AiOutlineAppstoreIcon />
-          <CiMenuKebabIcon />
+            <Button
+              type="button"
+              className="bg-[#ffdac5] p-[5px] rounded-full"
+              value={<IoCallOutlineIcon />}
+            />
+            <Button
+              type="button"
+              className="bg-[#ffdac5] p-[5px] rounded-full"
+              value={<MdOutlineVideocamIcon />}
+            />
+            <Button
+              type="button"
+              className="bg-[#ffdac5] p-[5px] rounded-full"
+              value={<AiOutlineAppstoreIcon />}
+            />
+            <Button
+              type="button"
+              className="hover:bg-[#ffdac5] p-[5px] rounded-full"
+              value={<CiMenuKebabIcon />}
+            />
           </div>
         </main>
       </section>
