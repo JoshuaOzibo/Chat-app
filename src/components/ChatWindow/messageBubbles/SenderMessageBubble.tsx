@@ -16,7 +16,7 @@ export default function SenderMessageBubble({message}: MessageType){
     return(
         <div className="flex items-start justify-end">
             <div className="max-w-[70%]">
-                <div className="bg-blue-600 rounded-br-none rounded-2xl px-4 py-2 text-white">
+                <div className="bg-[#1c9dea] rounded-br-none rounded-2xl px-4 py-2 text-white">
                     <div className="flex justify-between items-center mb-1 space-x-3">
                         <p className="text-sm text-gray-200">{message.senderName}</p>
                         <p className="text-xs text-gray-200">{messageTime}</p>

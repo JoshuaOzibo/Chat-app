@@ -71,9 +71,9 @@ export default function ChatWindow({ selectedUser }: ChatWindowProps) {
   };
 
   return (
-    <section className="bg-amber-500 overflow-hidden relative flex justify-between w-full">
+    <section className=" overflow-hidden relative flex justify-between w-full">
       {selectedUser ? (
-        <main className="bg-emerald-700 relative w-full">
+        <main className="bg-[#aacbdf] relative w-full">
           <CurrentChattingUser user={selectedUser} />
           <div className="flex-1 overflow-hidden">
             {messages.length > 0 ? (
