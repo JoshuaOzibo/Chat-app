@@ -7,7 +7,7 @@ const RightBar = () => {
 
   return (
     <section 
-      className={`transform transition-all duration-700 ease-in-out overflow-hidden
+      className={`transform transition-all duration-500 ease-in-out overflow-hidden
         ${isRightBarVisible ? 'w-[90px] opacity-100' : 'w-0 opacity-0'}
         py-5 grid grid-row-2 text-center h-screen bg-yellow-500`}
     >
