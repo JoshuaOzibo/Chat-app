@@ -3,10 +3,14 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import socket from "@/app/lib/socket";
-import {IoMdPaperPlaneIcon, TiMicrophoneOutlineIcon, TiPlusIcon, HiOutlineEmojiHappyIcon} from "@/Icons/Icons"
+import {
+  IoMdPaperPlaneIcon, 
+  TiMicrophoneOutlineIcon, 
+  HiOutlineEmojiHappyIcon
+} from "@/Icons/Icons";
 import Button from '@/components/ui/customUi/button';
 import { useColors } from '@/context/ColorContext';
-
+import AttachmentTooltip from './AttachmentTooltip';
 
 interface ChatInputProps {
   receiverId: string;
@@ -93,11 +97,11 @@ export default function ChatInput({ receiverId, onMessageSent }: ChatInputProps)
   };
 
   return (
-    <div style={{backgroundColor: primaryColor.primary}} className=" flex absolute bottom-2 w-full p-4">
+    <div style={{backgroundColor: primaryColor.primary}} className="flex absolute bottom-2 w-full p-4">
       <div className="flex gap-3">
-        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon  color={ primaryColor.primary} />} />
-        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<HiOutlineEmojiHappyIcon color={ primaryColor.primary} />} />
-        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<TiPlusIcon color={ primaryColor.primary} />} />
+        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon color={primaryColor.primary} />} />
+        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<HiOutlineEmojiHappyIcon color={primaryColor.primary} />} />
+        <AttachmentTooltip primaryColor={primaryColor} />
       </div>
       <form onSubmit={handleSubmit} className="relative w-full flex items-center">
         <input
@@ -109,8 +113,8 @@ export default function ChatInput({ receiverId, onMessageSent }: ChatInputProps)
           placeholder="Write your message..."
         />
         <div className="flex gap-3">
-          <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<TiMicrophoneOutlineIcon color={ primaryColor.primary} />} />
-          <Button type="submit" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon color={ primaryColor.primary} />} />
+          <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<TiMicrophoneOutlineIcon color={primaryColor.primary} />} />
+          <Button type="submit" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon color={primaryColor.primary} />} />
         </div>
       </form>
     </div>

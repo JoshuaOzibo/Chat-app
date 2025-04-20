@@ -20,6 +20,11 @@ import { FaBell } from "react-icons/fa6";
 import { IoIosContacts } from "react-icons/io";
 import { HiClipboardDocumentList } from "react-icons/hi2";
 import { IoIosStar } from "react-icons/io";
+import { GrGallery } from "react-icons/gr";
+import { MdOutlineCameraAlt } from "react-icons/md";
+import { IoMdCode } from "react-icons/io";
+import { CiLocationOn } from "react-icons/ci";
+import { GrAttachment } from "react-icons/gr";
 
 // Grid menu Icon
 export const AiOutlineAppstoreIcon =  AiOutlineAppstore;
@@ -86,3 +91,22 @@ export const HiClipboardDocumentListIcon =  HiClipboardDocumentList;
 
 // star
 export const IoIosStarIcon =  IoIosStar;
+
+// Gallery
+export const GrGalleryIcon =  GrGallery;
+
+
+// camera
+export const MdOutlineCameraAltIcon =  MdOutlineCameraAlt;
+
+
+// code snippet
+export const IoMdCodeIcon =  IoMdCode;
+
+
+// location
+export const CiLocationOnIcon =  CiLocationOn;
+
+
+// Attachment
+export const GrAttachmentIcon =  GrAttachment;
