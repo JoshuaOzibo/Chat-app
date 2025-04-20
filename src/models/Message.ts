@@ -5,7 +5,10 @@ const messageSchema = new mongoose.Schema({
   senderEmail: { type: String, required: true },
   receiver: { type: String, required: true },
   text: { type: String, required: true },
-  read: { type: Boolean, default: false },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 }, { timestamps: true });
 
 const Message = mongoose.models.Message || mongoose.model("Message", messageSchema);

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 import ChatWindow from "../ChatWindow/ChatWindow";
@@ -19,7 +19,10 @@ const Chat = () => {
     <ColorProvider>
       <SidebarProvider>
         <div className="flex w-full">
-          <ChatSidebar onSelectUser={setSelectedUser} selectedUser={selectedUser} />
+          <ChatSidebar
+            onSelectUser={setSelectedUser}
+            selectedUser={selectedUser}
+          />
           <ChatWindow selectedUser={selectedUser} />
           <Customizer />
         </div>
