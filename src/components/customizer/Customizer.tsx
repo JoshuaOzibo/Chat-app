@@ -15,7 +15,7 @@ const Customizer = () => {
   ];
 
   return (
-    <div className={`fixed top-20 h-screen right-0 z-50 transition-transform duration-300 ${
+    <div className={`fixed top-20 right-0 z-50 transition-transform duration-300 ${
       isColorPickerOpen ? 'translate-x-0' : 'translate-x-[calc(100%)]'
     }`}>
       <div className="bg-white p-6 rounded-l-md shadow-lg min-w-[300px]">

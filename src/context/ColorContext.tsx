@@ -1,12 +1,14 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+'use client'
+
+import { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
 
 interface ColorContextType {
   primaryColor: string;
   chatBackground: string;
   isColorPickerOpen: boolean;
+  setIsColorPickerOpen: Dispatch<SetStateAction<boolean>>;
   setPrimaryColor: (color: string) => void;
   setChatBackground: (color: string) => void;
-  toggleColorPicker: () => void;
 }
 
 const ColorContext = createContext<ColorContextType | undefined>(undefined);
@@ -15,10 +17,7 @@ export function ColorProvider({ children }: { children: ReactNode }) {
   const [primaryColor, setPrimaryColor] = useState('#1c9dea');
   const [chatBackground, setChatBackground] = useState('#eff7fe');
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
-
-  const toggleColorPicker = () => {
-    setIsColorPickerOpen(prev => !prev);
-  };
+  console.log(isColorPickerOpen)
 
   return (
     <ColorContext.Provider value={{ 
@@ -27,7 +26,7 @@ export function ColorProvider({ children }: { children: ReactNode }) {
       isColorPickerOpen,
       setPrimaryColor, 
       setChatBackground,
-      toggleColorPicker 
+      setIsColorPickerOpen
     }}>
       {children}
     </ColorContext.Provider>
