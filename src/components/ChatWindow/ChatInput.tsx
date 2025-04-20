@@ -5,6 +5,8 @@ import { useSession } from "next-auth/react";
 import socket from "@/app/lib/socket";
 import {IoMdPaperPlaneIcon, TiMicrophoneOutlineIcon, TiPlusIcon, HiOutlineEmojiHappyIcon} from "@/Icons/Icons"
 import Button from '@/components/ui/customUi/button';
+import { useColors } from '@/context/ColorContext';
+
 
 interface ChatInputProps {
   receiverId: string;
@@ -16,6 +18,7 @@ export default function ChatInput({ receiverId, onMessageSent }: ChatInputProps)
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [typingTimeout, setTypingTimeout] = useState<NodeJS.Timeout | null>(null);
+  const { primaryColor } = useColors();
 
   const emitTyping = () => {
     if (session?.user?.id) {
@@ -90,15 +93,15 @@ export default function ChatInput({ receiverId, onMessageSent }: ChatInputProps)
   };
 
   return (
-    <div className="bg-blue-800 flex absolute bottom-0 w-full p-4">
+    <div style={{backgroundColor: primaryColor.primary}} className=" flex absolute bottom-2 w-full p-4">
       <div className="flex gap-3">
-        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon color="#ff8b4e" />} />
-        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<HiOutlineEmojiHappyIcon color="#ff8b4e" />} />
-        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<TiPlusIcon color="#ff8b4e" />} />
+        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon  color={ primaryColor.primary} />} />
+        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<HiOutlineEmojiHappyIcon color={ primaryColor.primary} />} />
+        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<TiPlusIcon color={ primaryColor.primary} />} />
       </div>
       <form onSubmit={handleSubmit} className="relative w-full flex items-center">
         <input
-          className="w-full outline-none mx-3 rounded" 
+          className="w-full text-white outline-none mx-3 rounded" 
           value={message}
           onChange={handleTyping}
           disabled={isSending}
@@ -106,8 +109,8 @@ export default function ChatInput({ receiverId, onMessageSent }: ChatInputProps)
           placeholder="Write your message..."
         />
         <div className="flex gap-3">
-          <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<TiMicrophoneOutlineIcon color="#ff8b4e" />} />
-          <Button type="submit" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon color="#ff8b4e" />} />
+          <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<TiMicrophoneOutlineIcon color={ primaryColor.primary} />} />
+          <Button type="submit" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon color={ primaryColor.primary} />} />
         </div>
       </form>
     </div>

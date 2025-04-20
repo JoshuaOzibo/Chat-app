@@ -10,9 +10,10 @@ import {
 } from "@/Icons/Icons";
 import { useColors } from '@/context/ColorContext';
 
+
 const RightBar = () => {
   const { isRightBarVisible } = useSidebar();
-  const {setIsColorPickerOpen, isColorPickerOpen} = useColors();
+  const {setIsColorPickerOpen, isColorPickerOpen, primaryColor} = useColors();
 
   return (
     <section
@@ -27,7 +28,7 @@ const RightBar = () => {
         <div className="space-y-2">
           <Button
             className="bg-[#cfe9fb] p-2 rounded-full"
-            value={<AiOutlineAppstoreIcon />}
+            value={<AiOutlineAppstoreIcon color={primaryColor.primary} />}
             type="button"
           />
           <h1>Apps</h1>
@@ -35,7 +36,7 @@ const RightBar = () => {
         <div className="space-y-2">
           <Button
             className="bg-[#cfe9fb] p-2 rounded-full"
-            value={<FaRegFileIcon />}
+            value={<FaRegFileIcon color={primaryColor.primary} />}
             type="button"
           />
           <h1>Files</h1>
@@ -43,7 +44,7 @@ const RightBar = () => {
         <div className="space-y-2">
           <Button
             className="bg-[#cfe9fb] p-2 rounded-full"
-            value={<CgNotesIcon />}
+            value={<CgNotesIcon color={primaryColor.primary} />}
             type="button"
           />
           <h1>Note</h1>
@@ -51,7 +52,7 @@ const RightBar = () => {
         <div className="space-y-2">
           <Button
             className="bg-[#cfe9fb] p-2 rounded-full"
-            value={<FcTodoListIcon />}
+            value={<FcTodoListIcon color={primaryColor.primary} />}
             type="button"
           />
           <h1>Todo</h1>
@@ -59,7 +60,7 @@ const RightBar = () => {
         <div className="space-y-2">
           <Button
             className="bg-[#cfe9fb] p-2 rounded-full"
-            value={<LuClockIcon />}
+            value={<LuClockIcon color={primaryColor.primary} />}
             type="button"
           />
           <h1>Remender</h1>
@@ -73,7 +74,7 @@ const RightBar = () => {
         <Button
           onClick={() => setIsColorPickerOpen(!isColorPickerOpen)}
           className="bg-[#cfe9fb] cursor-pointer p-2 rounded-full"
-          value={<CiSettingsIcon />}
+          value={<CiSettingsIcon color={primaryColor.primary} />}
           type="button"
         />
       </main>

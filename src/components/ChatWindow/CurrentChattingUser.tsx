@@ -36,13 +36,13 @@ const CurrentChattingUser = ({ user }: CurrentChattingUserProps) => {
 
   return (
     <>
-      <section className="bg-blue-500 flex space-x-5 absolute items-center xl:w-[55%] rounded-md lg:w-[72%] w-[90%] py-6 px-10 top-5 left-1/2 -translate-x-1/2">
+      <section style={{backgroundColor: primaryColor.primary}} className=" flex space-x-5 absolute items-center xl:w-[55%] rounded-md lg:w-[72%] w-[90%] py-6 px-10 top-5 left-1/2 -translate-x-1/2">
         <main className="flex items-center gap-3">
           {/* <img src="" alt="" /> */}
           <img className="w-[50px] h-[50px] rounded-lg" src={user.image} alt="img src" />
           <div>
           <h1 className="font-medium text-sm">{user.name}</h1>
-          <Badge variant="outline" className="bg-red-700 -py-2">
+          <Badge style={{backgroundColor: primaryColor.light}} variant="outline" className="-py-2">
             Active
           </Badge>
           </div>

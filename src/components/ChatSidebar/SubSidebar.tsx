@@ -2,7 +2,6 @@
 import { signOut, useSession } from "next-auth/react";
 import Button from "../ui/customUi/button";
 import {
-  IoMdPaperPlaneIcon,
   IoIosStarIcon,
   HiClipboardDocumentListIcon,
   IoIosContactsIcon,
@@ -14,6 +13,7 @@ import {
 } from "@/Icons/Icons";
 import { useSidebar } from "@/context/SidebarContext";
 import { useColors } from '@/context/ColorContext';
+
 
 const SubSidebar = () => {
   const { isSubSidebarVisible } = useSidebar();
@@ -38,32 +38,32 @@ const SubSidebar = () => {
       <div className=" space-y-8 flex items-center flex-col">
         <Button
           className="bg-[#cfe9fb] p-2 rounded-full"
-          value={<IoIosStarIcon />}
+          value={<IoIosStarIcon color={primaryColor.primary} />}
           type="button"
         />
         <Button
           className="bg-[#cfe9fb] p-2 rounded-full"
-          value={<HiClipboardDocumentListIcon />}
+          value={<HiClipboardDocumentListIcon color={primaryColor.primary} />}
           type="button"
         />
         <Button
           className="bg-[#cfe9fb] p-2 rounded-full"
-          value={<IoIosContactsIcon />}
+          value={<IoIosContactsIcon color={primaryColor.primary} />}
           type="button"
         />
         <Button
           className="bg-[#cfe9fb] p-2 rounded-full"
-          value={<FaBellIcon />}
+          value={<FaBellIcon color={primaryColor.primary} />}
           type="button"
         />
         <Button
           className="bg-[#cfe9fb] p-2 rounded-full"
-          value={<CiSettingsIcon />}
+          value={<CiSettingsIcon color={primaryColor.primary} />}
           type="button"
         />
         <Button
           className="bg-[#cfe9fb] p-2 rounded-full"
-          value={<IoMoonOutlineIcon />}
+          value={<IoMoonOutlineIcon color={primaryColor.primary}/>}
           type="button"
         />
       </div>
@@ -72,7 +72,7 @@ const SubSidebar = () => {
         <Button
           onClick={() => signOut({ callbackUrl: "/login" })}
           className="bg-[#cfe9fb] p-2 rounded-full"
-          value={<MdOutlinePowerSettingsNewIcon />}
+          value={<MdOutlinePowerSettingsNewIcon color={primaryColor.primary} />}
           type="button"
         />
       </div>

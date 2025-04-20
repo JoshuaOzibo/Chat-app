@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
+import { useColors } from '@/context/ColorContext';
 
 interface User {
   _id: string;
@@ -17,6 +17,7 @@ interface ContactItemProps {
 
 const ContactItem = ({ onSelectUser, selectedUser }: ContactItemProps) => {
   const [users, setUsers] = useState<User[]>([]);
+  const {primaryColor} = useColors();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -43,11 +44,10 @@ const ContactItem = ({ onSelectUser, selectedUser }: ContactItemProps) => {
       <main className="h-full overflow-y-auto pr-1">
         {users.map((user) => (
           <div 
-            className={`py-5 px-3 rounded-r-sm flex cursor-pointer transition-colors ${
-              selectedUser?._id === user._id ? 'bg-[#cfe9fb] border-l-5 border-[#0d91dd]' : 'bg-green-700 hover:bg-green-600'
-            }`}
+            className={`py-5 px-3 rounded-r-sm flex cursor-pointer transition-colors`}
             key={user._id}
             onClick={() => onSelectUser(user)}
+            style={selectedUser?._id === user._id ? {borderLeft: `5px solid ${primaryColor.primary}`, backgroundColor: primaryColor.light} : {backgroundColor: primaryColor.light}}
           >
             <img 
               src={user.image || "/default-avatar.png"} 
