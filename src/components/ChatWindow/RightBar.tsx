@@ -8,9 +8,11 @@ import {
   LuClockIcon,
   CiSettingsIcon,
 } from "@/Icons/Icons";
+import { useColors } from '@/context/ColorContext';
 
 const RightBar = () => {
   const { isRightBarVisible } = useSidebar();
+  const { toggleColorPicker } = useColors();
 
   return (
     <section
@@ -69,6 +71,7 @@ const RightBar = () => {
         ${isRightBarVisible ? "opacity-100" : "opacity-0"}`}
       >
         <Button
+          onClick={toggleColorPicker}
           className="bg-[#cfe9fb] p-2 rounded-full"
           value={<CiSettingsIcon />}
           type="button"

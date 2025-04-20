@@ -4,6 +4,8 @@ import { useState } from "react";
 import ChatWindow from "../ChatWindow/ChatWindow";
 import ChatSidebar from "../ChatSidebar/ChatSidebar";
 import { SidebarProvider } from "@/context/SidebarContext";
+import { ColorProvider } from "@/context/ColorContext";
+import Customizer from "../customizer/Customizer";
 
 const Chat = () => {
   const [selectedUser, setSelectedUser] = useState<{
@@ -14,12 +16,15 @@ const Chat = () => {
   } | null>(null);
 
   return (
-    <SidebarProvider>
-      <div className="flex w-full">
-        <ChatSidebar onSelectUser={setSelectedUser} selectedUser={selectedUser} />
-        <ChatWindow selectedUser={selectedUser} />
-      </div>
-    </SidebarProvider>
+    <ColorProvider>
+      <SidebarProvider>
+        <div className="flex w-full">
+          <ChatSidebar onSelectUser={setSelectedUser} selectedUser={selectedUser} />
+          <ChatWindow selectedUser={selectedUser} />
+          <Customizer />
+        </div>
+      </SidebarProvider>
+    </ColorProvider>
   );
 };
 

@@ -9,6 +9,7 @@ import Chat from "@/app/chat/page";
 import socket from "@/app/lib/socket";
 import NoChatSelected from "../NoChatSelected/NoChatSelected";
 import EmptyChat from "../emptyChat.tsx/EmptyChat";
+import { useColors } from '@/context/ColorContext';
 
 interface User {
   _id: string;
@@ -25,6 +26,7 @@ export default function ChatWindow({ selectedUser }: ChatWindowProps) {
   const { data: session } = useSession();
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState<any[]>([]);
+  const { chatBackground } = useColors();
 
   const fetchMessages = async () => {
     if (!selectedUser || !session?.user?.id) return;
@@ -73,7 +75,10 @@ export default function ChatWindow({ selectedUser }: ChatWindowProps) {
   return (
     <section className=" overflow-hidden h-screen relative flex justify-between w-full">
       {selectedUser ? (
-        <main className="bg-[#cfe9fb] relative w-full">
+        <main 
+          className="relative w-full"
+          style={{ backgroundColor: chatBackground }}
+        >
           <CurrentChattingUser user={selectedUser} />
           <div className="flex-1 overflow-hidden">
             {messages.length > 0 ? (

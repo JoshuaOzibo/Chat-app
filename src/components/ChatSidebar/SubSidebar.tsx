@@ -1,3 +1,4 @@
+"use client";
 import { signOut, useSession } from "next-auth/react";
 import Button from "../ui/customUi/button";
 import {
@@ -12,10 +13,12 @@ import {
   MdOutlinePowerSettingsNewIcon,
 } from "@/Icons/Icons";
 import { useSidebar } from "@/context/SidebarContext";
+import { useColors } from '@/context/ColorContext';
 
 const SubSidebar = () => {
   const { isSubSidebarVisible } = useSidebar();
   const { data: session } = useSession();
+  const { primaryColor } = useColors();
 
   return (
     <main
@@ -26,7 +29,8 @@ const SubSidebar = () => {
       <div className="border-b-1">{/* img */}</div>
       <div className="flex justify-center w-full">
         <img 
-          className="border-4 border-[#1c9dea] rounded-full h-[70px] w-[70px] object-cover" 
+          className="rounded-full h-[70px] w-[70px] object-cover" 
+          style={{ borderColor: primaryColor, borderWidth: '4px' }}
           src={session?.user?.image || '/default-avatar.png'} 
           alt={session?.user?.name || 'User avatar'} 
         />
