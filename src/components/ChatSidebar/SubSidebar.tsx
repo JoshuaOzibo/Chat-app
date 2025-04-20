@@ -19,7 +19,7 @@ const SubSidebar = () => {
 
   return (
     <main
-      className={` flex border-r flex-col space-y-20 h-full overflow-hidden
+      className={` flex border-r flex-col space-y-20 h-screen overflow-hidden
         transition-all duration-500 ease-in-out
         ${isSubSidebarVisible ? "w-[130px] opacity-100" : "w-0 opacity-0"}`}
     >

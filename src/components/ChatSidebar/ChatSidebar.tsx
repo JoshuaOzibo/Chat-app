@@ -20,7 +20,7 @@ const ChatSidebar = ({ onSelectUser, selectedUser }: ChatSidebarProps) => {
   const { toggleSubSidebar, isSubSidebarVisible } = useSidebar();
 
   return (
-    <section className={` flex transition-all duration-500 ease-in-out
+    <section className={` flex h-screen transition-all duration-500 ease-in-out
       ${isSubSidebarVisible ? 'lg:w-[600px] md:w-[550px]' : 'lg:w-[470px] md:w-[420px]'} 
       w-[300px]`}>
       <SubSidebar />

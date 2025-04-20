@@ -39,8 +39,8 @@ const ContactItem = ({ onSelectUser, selectedUser }: ContactItemProps) => {
   // selectedUser
 
   return (
-    <section className="mt-5">
-      <main className=" h-[700px] mr-1 overflow-y-auto space-y-1">
+    <section className="flex-1 overflow-hidden">
+      <main className="h-full overflow-y-auto pr-1">
         {users.map((user) => (
           <div 
             className={`py-5 px-3 rounded-r-sm flex cursor-pointer transition-colors ${

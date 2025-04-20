@@ -92,9 +92,9 @@ export default function ChatInput({ receiverId, onMessageSent }: ChatInputProps)
   return (
     <div className="bg-blue-800 flex absolute bottom-0 w-full p-4">
       <div className="flex gap-3">
-        <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={<IoMdPaperPlaneIcon color="#ff8b4e" />} />
-        <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={<HiOutlineEmojiHappyIcon color="#ff8b4e" />} />
-        <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={<TiPlusIcon color="#ff8b4e" />} />
+        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon color="#ff8b4e" />} />
+        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<HiOutlineEmojiHappyIcon color="#ff8b4e" />} />
+        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<TiPlusIcon color="#ff8b4e" />} />
       </div>
       <form onSubmit={handleSubmit} className="relative w-full flex items-center">
         <input
@@ -106,8 +106,8 @@ export default function ChatInput({ receiverId, onMessageSent }: ChatInputProps)
           placeholder="Write your message..."
         />
         <div className="flex gap-3">
-          <Button type="button" className="bg-[#ffdac5] p-2 rounded-full" value={<TiMicrophoneOutlineIcon color="#ff8b4e" />} />
-          <Button type="submit" className="bg-[#ffdac5] p-2 rounded-full" value={<IoMdPaperPlaneIcon color="#ff8b4e" />} />
+          <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<TiMicrophoneOutlineIcon color="#ff8b4e" />} />
+          <Button type="submit" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon color="#ff8b4e" />} />
         </div>
       </form>
     </div>

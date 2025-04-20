@@ -50,35 +50,35 @@ const CurrentChattingUser = ({ user }: CurrentChattingUserProps) => {
           <div className="flex gap-2 items-center">
             <Button
               type="button"
-              className="bg-[#ffdac5] p-[5px] rounded-full"
+              className="bg-[#cfe9fb] p-[5px] rounded-full"
               value={<FaVolumeHighIcon />}
             />
             <Button
               type="button"
-              className="bg-[#ffdac5] p-[5px] rounded-full"
+              className="bg-[#cfe9fb] p-[5px] rounded-full"
               value={<FiSearchIcon />}
             />
           </div>
           <div className="flex gap-2 items-center">
             <Button
               type="button"
-              className="bg-[#ffdac5] p-[5px] rounded-full"
+              className="bg-[#cfe9fb] p-[5px] rounded-full"
               value={<IoCallOutlineIcon />}
             />
             <Button
               type="button"
-              className="bg-[#ffdac5] p-[5px] rounded-full"
+              className="bg-[#cfe9fb] p-[5px] rounded-full"
               value={<MdOutlineVideocamIcon />}
             />
             <Button
               type="button"
-              className="bg-[#ffdac5] cursor-pointer p-[5px] rounded-full"
+              className="bg-[#cfe9fb] cursor-pointer p-[5px] rounded-full"
               value={<AiOutlineAppstoreIcon />}
               onClick={handleClick}
             />
             <Button
               type="button"
-              className="hover:bg-[#ffdac5] p-[5px] rounded-full"
+              className="hover:bg-[#cfe9fb] p-[5px] rounded-full"
               value={<CiMenuKebabIcon />}
             />
           </div>

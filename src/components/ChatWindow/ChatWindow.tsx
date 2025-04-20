@@ -71,7 +71,7 @@ export default function ChatWindow({ selectedUser }: ChatWindowProps) {
   };
 
   return (
-    <section className=" overflow-hidden relative flex justify-between w-full">
+    <section className=" overflow-hidden h-screen relative flex justify-between w-full">
       {selectedUser ? (
         <main className="bg-[#cfe9fb] relative w-full">
           <CurrentChattingUser user={selectedUser} />
