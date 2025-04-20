@@ -1,5 +1,8 @@
+
 type ButtonType = 'submit' | 'reset' | 'button';
 type valueType = "string" | React.ReactNode;
+import { useColors } from '@/context/ColorContext';
+
 
 interface CustomButtonProps {
     type?: ButtonType;
@@ -9,9 +12,12 @@ interface CustomButtonProps {
 }
 
 export default function Button({ value, className, type, onClick }: CustomButtonProps) {
+
+    const { primaryColor } = useColors();
     return (
         <button 
             type={type} 
+            style={{backgroundColor: primaryColor.light}}
             className={className} 
             onClick={onClick}
         >

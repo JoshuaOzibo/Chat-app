@@ -11,6 +11,9 @@ import {
 } from "@/Icons/Icons";
 import Button from "@/components/ui/customUi/button";
 import { useSidebar } from "@/context/SidebarContext";
+import { useColors } from '@/context/ColorContext';
+
+
 
 interface User {
   _id: string;
@@ -25,6 +28,7 @@ interface CurrentChattingUserProps {
 
 const CurrentChattingUser = ({ user }: CurrentChattingUserProps) => {
   const { toggleRightBar } = useSidebar();
+  const { primaryColor } = useColors();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     toggleRightBar();
@@ -51,35 +55,35 @@ const CurrentChattingUser = ({ user }: CurrentChattingUserProps) => {
             <Button
               type="button"
               className="bg-[#cfe9fb] p-[5px] rounded-full"
-              value={<FaVolumeHighIcon />}
+              value={<FaVolumeHighIcon color={primaryColor.primary} />}
             />
             <Button
               type="button"
               className="bg-[#cfe9fb] p-[5px] rounded-full"
-              value={<FiSearchIcon />}
+              value={<FiSearchIcon color={primaryColor.primary} />}
             />
           </div>
           <div className="flex gap-2 items-center">
             <Button
               type="button"
               className="bg-[#cfe9fb] p-[5px] rounded-full"
-              value={<IoCallOutlineIcon />}
+              value={<IoCallOutlineIcon color={primaryColor.primary} />}
             />
             <Button
               type="button"
               className="bg-[#cfe9fb] p-[5px] rounded-full"
-              value={<MdOutlineVideocamIcon />}
+              value={<MdOutlineVideocamIcon color={primaryColor.primary} />}
             />
             <Button
               type="button"
               className="bg-[#cfe9fb] cursor-pointer p-[5px] rounded-full"
-              value={<AiOutlineAppstoreIcon />}
+              value={<AiOutlineAppstoreIcon color={primaryColor.primary} />}
               onClick={handleClick}
             />
             <Button
               type="button"
               className="hover:bg-[#cfe9fb] p-[5px] rounded-full"
-              value={<CiMenuKebabIcon />}
+              value={<CiMenuKebabIcon color={primaryColor.primary} />}
             />
           </div>
         </main>
