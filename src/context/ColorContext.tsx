@@ -2,36 +2,52 @@
 
 import { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
 
-interface ColorContextType {
-  primaryColor: string;
-  chatBackground: string;
-  isColorPickerOpen: boolean;
-  setIsColorPickerOpen: Dispatch<SetStateAction<boolean>>;
-  setPrimaryColor: (color: string) => void;
-  setChatBackground: (color: string) => void;
+interface ColorPair {
+  primary: string;
+  light: string;
 }
 
-const ColorContext = createContext<ColorContextType | undefined>(undefined);
+interface ColorContextType {
+  primaryColor: ColorPair;
+  chatBackground: string;
+  isColorPickerOpen: boolean;
+  setPrimaryColor: (colors: ColorPair) => void;
+  setChatBackground: (color: string) => void;
+  setIsColorPickerOpen: (isOpen: boolean) => void;
+}
 
-export function ColorProvider({ children }: { children: ReactNode }) {
-  const [primaryColor, setPrimaryColor] = useState('#1c9dea');
-  const [chatBackground, setChatBackground] = useState('#eff7fe');
+export const ColorContext = createContext<ColorContextType>({
+  primaryColor: { primary: '#1c9dea', light: '#cfe9fb' },
+  chatBackground: '#ffffff',
+  isColorPickerOpen: false,
+  setPrimaryColor: () => {},
+  setChatBackground: () => {},
+  setIsColorPickerOpen: () => {},
+});
+
+export const ColorProvider = ({ children }: { children: React.ReactNode }) => {
+  const [primaryColor, setPrimaryColor] = useState<ColorPair>({ 
+    primary: '#1c9dea', 
+    light: '#cfe9fb' 
+  });
+  const [chatBackground, setChatBackground] = useState('#ffffff');
   const [isColorPickerOpen, setIsColorPickerOpen] = useState(false);
-  console.log(isColorPickerOpen)
 
   return (
-    <ColorContext.Provider value={{ 
-      primaryColor, 
-      chatBackground, 
-      isColorPickerOpen,
-      setPrimaryColor, 
-      setChatBackground,
-      setIsColorPickerOpen
-    }}>
+    <ColorContext.Provider
+      value={{
+        primaryColor,
+        chatBackground,
+        isColorPickerOpen,
+        setPrimaryColor,
+        setChatBackground,
+        setIsColorPickerOpen,
+      }}
+    >
       {children}
     </ColorContext.Provider>
   );
-}
+};
 
 export function useColors() {
   const context = useContext(ColorContext);

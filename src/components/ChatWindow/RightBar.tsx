@@ -12,7 +12,7 @@ import { useColors } from '@/context/ColorContext';
 
 const RightBar = () => {
   const { isRightBarVisible } = useSidebar();
-  const {setIsColorPickerOpen} = useColors();
+  const {setIsColorPickerOpen, isColorPickerOpen} = useColors();
 
   return (
     <section
@@ -71,8 +71,8 @@ const RightBar = () => {
         ${isRightBarVisible ? "opacity-100" : "opacity-0"}`}
       >
         <Button
-          onClick={() => setIsColorPickerOpen((prev) => !prev)}
-          className="bg-[#cfe9fb] p-2 rounded-full"
+          onClick={() => setIsColorPickerOpen(!isColorPickerOpen)}
+          className="bg-[#cfe9fb] cursor-pointer p-2 rounded-full"
           value={<CiSettingsIcon />}
           type="button"
         />

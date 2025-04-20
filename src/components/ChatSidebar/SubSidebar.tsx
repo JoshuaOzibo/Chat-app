@@ -30,7 +30,7 @@ const SubSidebar = () => {
       <div className="flex justify-center w-full">
         <img 
           className="rounded-full h-[70px] w-[70px] object-cover" 
-          style={{ borderColor: primaryColor, borderWidth: '4px' }}
+          style={{ borderColor: primaryColor.primary, borderWidth: '4px' }}
           src={session?.user?.image || '/default-avatar.png'} 
           alt={session?.user?.name || 'User avatar'} 
         />
