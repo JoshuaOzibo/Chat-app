@@ -11,6 +11,7 @@ import {
 import Button from '@/components/ui/customUi/button';
 import { useColors } from '@/context/ColorContext';
 import AttachmentTooltip from './AttachmentTooltip';
+import EmojiPicker from './EmojiPicker';
 
 interface ChatInputProps {
   receiverId: string;
@@ -96,11 +97,18 @@ export default function ChatInput({ receiverId, onMessageSent }: ChatInputProps)
     }
   };
 
+  const handleEmojiSelect = (emoji: string) => {
+    setMessage(prev => prev + emoji);
+  };
+
   return (
     <div style={{backgroundColor: primaryColor.primary}} className="flex absolute bottom-2 w-full p-4">
       <div className="flex gap-3">
         <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon color={primaryColor.primary} />} />
-        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<HiOutlineEmojiHappyIcon color={primaryColor.primary} />} />
+        <EmojiPicker 
+          primaryColor={primaryColor} 
+          onEmojiSelect={handleEmojiSelect}
+        />
         <AttachmentTooltip primaryColor={primaryColor} />
       </div>
       <form onSubmit={handleSubmit} className="relative w-full flex items-center">
