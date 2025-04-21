@@ -59,7 +59,7 @@ export default function EmojiPicker({
           <Picker
             data={async () => {
               const response = await fetch(
-                'https://cdn.jsdelivr.net/npm/@emoji-mart/data'
+                `${process.env.NEXT_PUBLIC_EMOJI_URL}`
               );
               return response.json();
             }}

@@ -104,7 +104,6 @@ export default function ChatInput({ receiverId, onMessageSent }: ChatInputProps)
   return (
     <div style={{backgroundColor: primaryColor.primary}} className="flex absolute bottom-2 w-full p-4">
       <div className="flex gap-3">
-        <Button type="button" className="bg-[#cfe9fb] p-2 rounded-full" value={<IoMdPaperPlaneIcon color={primaryColor.primary} />} />
         <EmojiPicker 
           primaryColor={primaryColor} 
           onEmojiSelect={handleEmojiSelect}
