@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import {
@@ -11,28 +11,44 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { signIn } from "next-auth/react";
+import { GoogleIcon } from "@/Icons/svg_Icons";
 
 const page = () => {
   const handleLogin = () => {
-    signIn("google", { callbackUrl: "/" }); 
+    signIn("google", { callbackUrl: "/" });
   };
 
-
   return (
-    <>
-      <Card className="w-1/2 m-auto">
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
+    <div className="min-h-screen flex items-center mx-4 md:mx-0 justify-center bg-gray-50">
+      <Card className="w-full max-w-md p-2 py-10 shadow-xl">
+        <CardHeader className="space-y-3">
+          <CardTitle className="text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600 md:text-4xl text-3xl tracking-tight">
+            Welcome to ChatApp
+          </CardTitle>
+
+          <CardDescription className="text-center text-gray-600 text-lg">
+            Connect, chat, and collaborate seamlessly
+          </CardDescription>
         </CardHeader>
-        <CardContent>
-        <Button onClick={handleLogin}>Login</Button>
+        <CardContent className="space-y-4">
+          <Button
+            className="w-full cursor-pointer h-12 text-lg font-medium flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 hover:border-gray-300 transition-all"
+            onClick={handleLogin}
+          >
+            <GoogleIcon className="h-10 w-10" />
+            Continue with Google
+          </Button>
         </CardContent>
-        <CardFooter>
-          <p>Card Footer</p>
+        <CardFooter className="flex flex-col items-center text-sm text-gray-500 border-t pt-4 mt-2">
+          <p>By continuing, you agree to our</p>
+          <p className="flex gap-2">
+            <a className="hover:text-blue-600 underline">Terms of Service</a>
+            <span>•</span>
+            <a className="hover:text-blue-600 underline">Privacy Policy</a>
+          </p>
         </CardFooter>
       </Card>
-    </>
+    </div>
   );
 };
 
