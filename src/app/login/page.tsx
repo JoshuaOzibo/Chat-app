@@ -12,16 +12,25 @@ import {
 import { Button } from "@/components/ui/button";
 import { signIn } from "next-auth/react";
 import { GoogleIcon } from "@/Icons/svg_Icons";
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
 
 const page = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const handleLogin = () => {
+    setIsLoading(true);
     signIn("google", { callbackUrl: "/" });
   };
 
   return (
     <div className="min-h-screen flex items-center mx-4 md:mx-0 justify-center bg-gray-50">
-      <Card className="w-full max-w-md p-2 py-10 shadow-xl">
-        <CardHeader className="space-y-3">
+      {isLoading ? (
+        <div className="flex justify-center items-center h-screen">
+          <Loader2 className="h-8 w-8 animate-spin" />
+        </div>
+      ) : (
+        <Card className="w-full max-w-md p-2 py-10 shadow-xl">
+          <CardHeader className="space-y-3">
           <CardTitle className="text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600 md:text-4xl text-3xl tracking-tight">
             Welcome to ChatApp
           </CardTitle>
@@ -48,6 +57,7 @@ const page = () => {
           </p>
         </CardFooter>
       </Card>
+      )}
     </div>
   );
 };
